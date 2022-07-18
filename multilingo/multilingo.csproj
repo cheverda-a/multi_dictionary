@@ -33,8 +33,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,17 +68,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FormChange.cs">
+    <Compile Include="Entities\Lingo.cs" />
+    <Compile Include="Entities\Term.cs" />
+    <Compile Include="Entities\Topic.cs" />
+    <Compile Include="FormInitial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormChange.Designer.cs">
-      <DependentUpon>FormChange.cs</DependentUpon>
+    <Compile Include="FormInitial.Designer.cs">
+      <DependentUpon>FormInitial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormFavourites.cs">
+    <Compile Include="Forms\FormAddTerm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormFavourites.Designer.cs">
-      <DependentUpon>FormFavourites.cs</DependentUpon>
+    <Compile Include="Forms\FormAddTerm.Designer.cs">
+      <DependentUpon>FormAddTerm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormMainMenu.cs">
       <SubType>Form</SubType>
@@ -70,49 +95,51 @@
     <Compile Include="Forms\FormDiscovery.Designer.cs">
       <DependentUpon>FormDiscovery.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormTopics.cs">
+    <Compile Include="Forms\FormTopicDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormTopics.Designer.cs">
-      <DependentUpon>FormTopics.cs</DependentUpon>
+    <Compile Include="Forms\FormTopicDisplay.Designer.cs">
+      <DependentUpon>FormTopicDisplay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormWordDisplay.cs">
+    <Compile Include="Forms\FormTermDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormWordDisplay.Designer.cs">
-      <DependentUpon>FormWordDisplay.cs</DependentUpon>
+    <Compile Include="Forms\FormTermDisplay.Designer.cs">
+      <DependentUpon>FormTermDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControlers\UserControlTopicsChoose.cs">
+    <Compile Include="SQL\TermsAccessor.cs" />
+    <Compile Include="SQL\TopicsAccessor.cs" />
+    <Compile Include="UserControlers\UserControlError.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlers\UserControlTopicsChoose.Designer.cs">
-      <DependentUpon>UserControlTopicsChoose.cs</DependentUpon>
+    <Compile Include="UserControlers\UserControlError.Designer.cs">
+      <DependentUpon>UserControlError.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlers\UserControlTranslationDisplay.cs">
+    <Compile Include="UserControlers\UserControlTopicChoose.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlers\UserControlTranslationDisplay.Designer.cs">
-      <DependentUpon>UserControlTranslationDisplay.cs</DependentUpon>
+    <Compile Include="UserControlers\UserControlTopicChoose.Designer.cs">
+      <DependentUpon>UserControlTopicChoose.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlers\UserControlWordChoose.cs">
+    <Compile Include="UserControlers\UserControlTermChoose.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlers\UserControlWordChoose.Designer.cs">
-      <DependentUpon>UserControlWordChoose.cs</DependentUpon>
+    <Compile Include="UserControlers\UserControlTermChoose.Designer.cs">
+      <DependentUpon>UserControlTermChoose.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlers\UserControlWordDisplay.cs">
+    <Compile Include="UserControlers\UserControlTermDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlers\UserControlWordDisplay.Designer.cs">
-      <DependentUpon>UserControlWordDisplay.cs</DependentUpon>
+    <Compile Include="UserControlers\UserControlTermDisplay.Designer.cs">
+      <DependentUpon>UserControlTermDisplay.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\FormChange.resx">
-      <DependentUpon>FormChange.cs</DependentUpon>
+    <EmbeddedResource Include="FormInitial.resx">
+      <DependentUpon>FormInitial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormFavourites.resx">
-      <DependentUpon>FormFavourites.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormAddTerm.resx">
+      <DependentUpon>FormAddTerm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
@@ -120,11 +147,11 @@
     <EmbeddedResource Include="Forms\FormDiscovery.resx">
       <DependentUpon>FormDiscovery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormTopics.resx">
-      <DependentUpon>FormTopics.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormTopicDisplay.resx">
+      <DependentUpon>FormTopicDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormWordDisplay.resx">
-      <DependentUpon>FormWordDisplay.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormTermDisplay.resx">
+      <DependentUpon>FormTermDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,18 +162,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControlers\UserControlTopicsChoose.resx">
-      <DependentUpon>UserControlTopicsChoose.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlers\UserControlError.resx">
+      <DependentUpon>UserControlError.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlers\UserControlTranslationDisplay.resx">
-      <DependentUpon>UserControlTranslationDisplay.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlers\UserControlTopicChoose.resx">
+      <DependentUpon>UserControlTopicChoose.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlers\UserControlWordChoose.resx">
-      <DependentUpon>UserControlWordChoose.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlers\UserControlTermChoose.resx">
+      <DependentUpon>UserControlTermChoose.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlers\UserControlWordDisplay.resx">
-      <DependentUpon>UserControlWordDisplay.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlers\UserControlTermDisplay.resx">
+      <DependentUpon>UserControlTermDisplay.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,7 +190,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\book %281%29.png" />
     <Content Include="Images\closing.png" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\plus.png" />
+    <Content Include="Images\previous.png" />
+    <Content Include="Images\star.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace multilingo
+﻿namespace Multilingo
 {
     partial class FormMainMenu
     {
@@ -30,12 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnDiscover = new System.Windows.Forms.Button();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,13 +44,30 @@
             this.panelMenu.Controls.Add(this.btnAdd);
             this.panelMenu.Controls.Add(this.label1);
             this.panelMenu.Controls.Add(this.btnCloseChildForm);
-            this.panelMenu.Controls.Add(this.button2);
             this.panelMenu.Controls.Add(this.btnDiscover);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 527);
+            this.panelMenu.Size = new System.Drawing.Size(220, 528);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(0, 203);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnAdd.Size = new System.Drawing.Size(220, 60);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = " Add a topic";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
             // 
@@ -78,24 +94,6 @@
             this.btnCloseChildForm.UseVisualStyleBackColor = true;
             this.btnCloseChildForm.Click += new System.EventHandler(this.btnCloseChildForm_Click_1);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 194);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(220, 60);
-            this.button2.TabIndex = 4;
-            this.button2.Text = " Favourites";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // btnDiscover
             // 
             this.btnDiscover.BackColor = System.Drawing.Color.Transparent;
@@ -117,38 +115,21 @@
             // 
             // panelDesktop
             // 
-            this.panelDesktop.BackColor = System.Drawing.SystemColors.Control;
+            this.panelDesktop.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 0);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(777, 527);
+            this.panelDesktop.Size = new System.Drawing.Size(968, 528);
             this.panelDesktop.TabIndex = 2;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(0, 251);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnAdd.Size = new System.Drawing.Size(220, 60);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = " Add";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // FormMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 527);
+            this.ClientSize = new System.Drawing.Size(1188, 528);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelMenu);
-            this.MinimumSize = new System.Drawing.Size(1019, 583);
+            this.MinimumSize = new System.Drawing.Size(1210, 584);
             this.Name = "FormMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MultiLingo";
@@ -161,7 +142,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnDiscover;
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Button btnCloseChildForm;

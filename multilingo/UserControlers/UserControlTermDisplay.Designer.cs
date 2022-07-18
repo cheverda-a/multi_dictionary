@@ -1,6 +1,6 @@
-﻿namespace multilingo.UserControlers
+﻿namespace Multilingo.UserControlers
 {
-    partial class UserControlWordDisplay
+    partial class UserControlTermDisplay
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,14 +35,14 @@
             // 
             // lblTerm
             // 
-            this.lblTerm.BackColor = System.Drawing.SystemColors.Control;
-            this.lblTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTerm.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTerm.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblTerm.Location = new System.Drawing.Point(47, 42);
+            this.lblTerm.Location = new System.Drawing.Point(67, 91);
             this.lblTerm.Name = "lblTerm";
-            this.lblTerm.Size = new System.Drawing.Size(302, 37);
+            this.lblTerm.Size = new System.Drawing.Size(453, 56);
             this.lblTerm.TabIndex = 0;
-            this.lblTerm.Text = "Word Term";
+            this.lblTerm.Text = "Translation doesn\'t exist yet.";
             this.lblTerm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDefinition
@@ -50,34 +50,36 @@
             this.lblDefinition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDefinition.Location = new System.Drawing.Point(48, 79);
+            this.lblDefinition.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDefinition.Location = new System.Drawing.Point(67, 166);
             this.lblDefinition.Name = "lblDefinition";
-            this.lblDefinition.Size = new System.Drawing.Size(611, 84);
+            this.lblDefinition.Size = new System.Drawing.Size(486, 138);
             this.lblDefinition.TabIndex = 1;
-            this.lblDefinition.Text = "Definition";
-            this.lblDefinition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDefinition.Text = "The translation of this definition doesn\'t exist.";
             // 
             // lblTopic
             // 
             this.lblTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTopic.ForeColor = System.Drawing.Color.Navy;
-            this.lblTopic.Location = new System.Drawing.Point(491, 0);
+            this.lblTopic.Location = new System.Drawing.Point(455, 0);
             this.lblTopic.Name = "lblTopic";
             this.lblTopic.Size = new System.Drawing.Size(209, 41);
             this.lblTopic.TabIndex = 2;
             this.lblTopic.Text = "Topic";
             this.lblTopic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // UserControlWordDisplay
+            // UserControlTermDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.lblTopic);
             this.Controls.Add(this.lblDefinition);
             this.Controls.Add(this.lblTerm);
-            this.Name = "UserControlWordDisplay";
-            this.Size = new System.Drawing.Size(700, 190);
+            this.Name = "UserControlTermDisplay";
+            this.Size = new System.Drawing.Size(664, 349);
+            this.Load += new System.EventHandler(this.UserControlTermDisplay_Load);
             this.ResumeLayout(false);
 
         }

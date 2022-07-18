@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace multilingo.Properties
+namespace Multilingo.Properties
 {
 
 

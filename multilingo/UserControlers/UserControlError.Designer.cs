@@ -1,6 +1,6 @@
 ﻿namespace multilingo.UserControlers
 {
-    partial class UserControlWordChoose
+    partial class UserControlError
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,33 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblError
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 150);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Word";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblError.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblError.Location = new System.Drawing.Point(0, 0);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(304, 170);
+            this.lblError.TabIndex = 0;
+            this.lblError.Text = "Error Message";
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // UserControlWordChoose
+            // UserControlError
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Name = "UserControlWordChoose";
+            this.Controls.Add(this.lblError);
+            this.Name = "UserControlError";
+            this.Size = new System.Drawing.Size(304, 170);
+            this.Load += new System.EventHandler(this.UserControlError_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblError;
     }
 }

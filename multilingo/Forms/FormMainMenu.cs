@@ -1,13 +1,20 @@
-﻿using System;
+﻿using Multilingo.Forms;
+using System;
+using Multilingo.SQL;
 using System.Drawing;
 using System.Windows.Forms;
+using Multilingo.Entities;
 
-namespace multilingo
+namespace Multilingo
 {
     public partial class FormMainMenu : Form
     {
-        public FormMainMenu()
+        internal readonly FormInitial formInitial;
+        public FormMainMenu(FormInitial formInitial)
         {
+            this.formInitial = formInitial;
+            formInitial.Size = new Size(900, 415);
+            formInitial.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             btnCloseChildForm.Visible = false;
         }
@@ -17,7 +24,7 @@ namespace multilingo
 
         private void FormMainMenu_Load(object sender, EventArgs e)
         {
-           
+            OpenChildForm(new FormDiscovery(formInitial), btnDiscover);
         }
 
         private void ActivateButton(object btnSender)
@@ -38,7 +45,8 @@ namespace multilingo
 
         private void DisableButton()
         {
-            foreach (Control previousBtn in panelMenu.Controls) {
+            foreach (Control previousBtn in panelMenu.Controls)
+            {
                 if (previousBtn.GetType() == typeof(Button))
                 {
                     previousBtn.BackColor = Color.RoyalBlue;
@@ -49,12 +57,11 @@ namespace multilingo
             }
         }
 
-        private void OpenChildForm(Form childForm, object btnSender)
+        internal void OpenChildForm(Form childForm, object btnSender)
         {
-            if(activeForm != null)
-            {
+            if (activeForm != null)
                 activeForm.Close();
-            }
+
             ActivateButton(btnSender);
             activeForm = childForm;
             childForm.TopLevel = false;
@@ -68,23 +75,22 @@ namespace multilingo
 
         private void btnDiscover_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormDiscovery(), sender);
+            OpenChildForm(new FormDiscovery(formInitial), sender);
         }
 
-        private void btnTopic_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormTopics(), sender);
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Forms.FormChange(), sender);
+            string input = "";
+            ShowInputDialogBox(ref input, "Put in the name of your new topic:", "New Topic Creation");
+            Topic topic = new Topic();
+            if (input != "")
+            {
+                topic.Name = input;
+                TopicsAccessor accessor = new TopicsAccessor();
+                accessor.CreateTopic(topic);
+                OpenChildForm(new FormDiscovery(formInitial), btnDiscover);
+            }
+            else return;
         }
 
         private void Reset()
@@ -101,5 +107,55 @@ namespace multilingo
                 activeForm.Close();
             Reset();
         }
+
+        private static DialogResult ShowInputDialogBox(ref string input, string prompt, string title = "Title")
+        {
+            Size size = new Size(250, 150);
+            Form inputBox = new Form();
+            inputBox.ControlBox = false;
+            inputBox.StartPosition = FormStartPosition.CenterScreen;
+
+            inputBox.FormBorderStyle = FormBorderStyle.FixedDialog;
+            inputBox.ClientSize = size;
+            inputBox.Text = title;
+
+            Label label = new Label();
+            label.Text = prompt;
+            label.Location = new Point(45, 40);
+            label.Width = size.Width - 10;
+            inputBox.Controls.Add(label);
+
+            TextBox textBox = new TextBox();
+            textBox.Size = new Size(150, 25);
+            textBox.Location = new Point(50, label.Location.Y + 20);
+            textBox.Text = input;
+            inputBox.Controls.Add(textBox);
+
+            Button okButton = new Button();
+            okButton.DialogResult = DialogResult.OK;
+            okButton.Name = "okButton";
+            okButton.Size = new Size(75, 25);
+            okButton.Text = "&Create";
+            okButton.Location = new Point(size.Width - 200, size.Height - 50);
+            inputBox.Controls.Add(okButton);
+
+            Button cancelButton = new Button();
+            cancelButton.DialogResult = DialogResult.Cancel;
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(75, 23);
+            cancelButton.Text = "&Cancel";
+            cancelButton.Location = new Point(size.Width - 120, size.Height - 50);
+            inputBox.Controls.Add(cancelButton);
+
+            inputBox.AcceptButton = okButton;
+            inputBox.CancelButton = cancelButton;
+
+            DialogResult result = inputBox.ShowDialog();
+            input = textBox.Text;
+
+            return result;
+        }
+
     }
 }
+

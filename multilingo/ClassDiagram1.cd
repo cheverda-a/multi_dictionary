@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="multilingo.Entities.Lingo">
+    <Position X="6.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Entities\Lingo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Multilingo.Entities.Term">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAAAgAAAEAAAAAAACAAAAAAAAAAAQEAAAAAA=</HashCode>
+      <FileName>Entities\Term.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Multilingo.Entities.Topic">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Topic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Multilingo.SQL.TermsAccessor">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgEAAAIAABCACGAAAAAAAECEAABAAAAAAAAABA=</HashCode>
+      <FileName>SQL\TermsAccessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Multilingo.SQL.TopicsAccessor">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAIAAAggAAAAAACACAAAAAAAEAAAAAAAAACAAAA=</HashCode>
+      <FileName>SQL\TopicsAccessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

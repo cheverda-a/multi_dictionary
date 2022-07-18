@@ -1,6 +1,6 @@
-﻿namespace multilingo.Forms
+﻿namespace Multilingo
 {
-    partial class FormFavourites
+    partial class FormInitial
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelInitial = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // FormFavourites
+            // panelInitial
+            // 
+            this.panelInitial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelInitial.Location = new System.Drawing.Point(0, 0);
+            this.panelInitial.Name = "panelInitial";
+            this.panelInitial.Size = new System.Drawing.Size(874, 534);
+            this.panelInitial.TabIndex = 0;
+            // 
+            // FormInitial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FormFavourites";
-            this.Text = "Favourites";
+            this.ClientSize = new System.Drawing.Size(874, 534);
+            this.Controls.Add(this.panelInitial);
+            this.Name = "FormInitial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "MultiLingo";
+            this.Load += new System.EventHandler(this.FormInitial_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panelInitial;
     }
 }
